@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="noindex, nofollow">
+	<title>Test page for Web push</title>
+	<style>
+	body{	font-family:"Open Sans", sans-serif; font-size: 14px; background-color: #eeeeee;}
+	.container{	width: 800px;	margin:0 auto; padding:15px; background-color: #ffffff; border-radius: 5px;}
+	.text-center{ text-align: center; }
+	.form-textbox, input{ padding:5px;font-size: 14px;}
+	.exemples { padding:10px 0;}
+	.exemples div:first-child { width:50%; float:left;}
+	.exemples div { text-align:center;}
+	</style>
+  <!-- Start - Dialog Insight Web push code -->
+	<!-- Copy and paste the code provided in the configuration page on Dialog Insight -->
+		
+  <!-- End - Dialog Insight Web push code -->
+</head>
+<body>
+<div class="container">
+	<img src="https://cdn.ofsys.com/T/OFSYS/H/C2/1255324/y1wjIJ/logo-di-green-grey-148x53.png" alt"Dialog Insight" />
+	<h2>Test page for Web push</h2>
+	<p> Use this page to test how it works before integrating on your website. </ p>
+	<p> This page does not work locally. You must first follow these steps: </ p>
+	<ul>
+		<li> In the HTML code of this page, copy and paste the code provided on the configuration page into Dialog Insight. </li>
+		<li> Upload the "DI.WebPush-sw.js" file, provided on the configuration page into Dialog Insight, at the root of your site. </li>
+		<li> Upload this test page to your website. </li>
+		<li> Visit this test page from your browser. </li>
+	</ul>
+  <p><strong>Example - onclick="DI.WebPush.RequestPermission('LanguageCode');"</strong><br />
+	To trigger the browser authorization request with a button:<br />
+	<div style="text-align:center;">
+		<input type="button" value="I want to receive notifications in FR" onclick="DI.WebPush.RequestPermission('fr');" /><br />
+		<input type="button" value="I want to receive notifications in EN" onclick="DI.WebPush.RequestPermission('en');" /><br />
+	</div>
+	</p>
+	<div class="exemples">
+		<div>Chrome Authorization<br /><img src="https://cdn.dialoginsight.com/OFSYS/admin/webpush/WebPush-Browser-Authorization-Chrome.jpg" /></div>
+		<div>Firefox Authorization<br /><img src="https://cdn.dialoginsight.com/OFSYS/admin/webpush/WebPush-Browser-Authorization-Firefox.jpg" /></div>
+	</div>
+	<p><strong>Note</strong><br />
+		If the browser authorization request is not displayed, it is already Authorized or Blocked. Make sure you've chosen "Ask" in Chrome, or have not chosen
+		any value in Firefox:</p>
+
+	<div class="exemples">
+		<div>Chrome<br /><img src="https://cdn.dialoginsight.com/OFSYS/admin/webpush/WebPush-Browser-Permission-Chrome.jpg" /></div>
+		<div>Firefox<br /><img src="https://cdn.dialoginsight.com/OFSYS/admin/webpush/WebPush-Browser-Permission-Firefox.jpg" /></div>
+	</div>
+
+	<h2>Identify a known contact of your project (contact list) Dialog Insight<br / >(advanced method)</h2>
+	<p>In the Javascript code provided, a function is available so that you can identify subscribers if you already have information about them.
+	For example, if your site allows the visitor to login, you already have some information such as email, first name, name. You
+	can use the Javascript function "DI.WebPush.Identify" to identify the contact subscription that is present in your contact list on Dialog Insight.</p>
+
+	<p><strong>Fonction</strong><br />
+	DI.WebPush.Identify('f_KeyFieldCode', 'Value');<br /><br />
+	<strong>Paramètres</strong><br />
+	"f_KeyFieldCode": Code of the "unique key" field. You can find this information on the field configuration page of your project. If your project contains
+	more than one unique key, you will not be able to use this identificaton method.<br />
+	"Value": Value to find in the contact list (your project) to identify the contact.
+	</p>
+
+	<strong>Example - For the unique key field email (f_EMail)</strong>
+	<ol>
+		<li> Add the contact in your Dialog Insight project. </li>
+		<li> Type the value in the following field and click on "Identify subscriber". </li>
+		<li> You should see 1 more recognized contact on Dialog Insight, displayed in the list of configured sites. </li>
+	</ol>
+
+	<p>Value of the unique key field (Email) : <input id="email" type="text" class="form-textbox" style="width:300px;" />
+	<input type="button" value="Identify subscriber" onclick="DI.WebPush.Identify('f_EMail', document.getElementById('email').value);" /></p>
+
+</div><br /><br /> <br />
+</body>
+</html>
