@@ -34,8 +34,8 @@
 function TestIsSubscribed()
 {
 	if (DI.isSubscribed)
-		lblIsSubscribed.Text = "Le user isSubscribed"
+		document.getElementById('lblIsSubscribed').innerHTML = 'Yes!';
 	else
-		lblIsSubscribed.Text = "Le user n'est pas isSubscribed"	
+		document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
 }
 </script>
