@@ -21,24 +21,57 @@
 
 
 <body>
-<div>
-<label>Adresse courriel du contact</label>
-<button ID ="btnIsSubscribed" OnClick="TestIsSubscribed()">Tester isSubscribed</button>
+<div style="display:inline-block">
+	<div>
+		<button ID ="btnIsSubscribed" OnClick="testIsSubscribed()">Tester isSubscribed</button>
 	</div>
 	<div>
-<label ID ="lblIsSubscribed" Text="allo"></label>
+		<label ID ="lblIsSubscribed" Text="allo"></label>
 	</div>
+</div>
+<div style="display:inline-block">
+	<div>
+		<button ID ="btnIsSupported" OnClick="testIsSupported()">Tester IsSupported</button>
+	</div>
+	<div>
+		<label ID ="lblIsSupported" Text="allo"></label>
+	</div>
+</div>
+	<div style="display:inline-block">
+	<div>
+		<button ID ="btnIsBlocked" OnClick="testIsBlocked()">Tester isBlocked</button>
+	</div>
+	<div>
+		<label ID ="lblIsBlocked" Text="allo"></label>
+	</div>
+</div>
 </body>
 
 </html>
 
 <script>
 
-function TestIsSubscribed()
+function testIsSubscribed()
 {
 	if (DI.isSubscribed)
 		document.getElementById('lblIsSubscribed').innerHTML = 'Yes!';
 	else
 		document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
+}
+	
+function testIsSupported()
+{
+	if (DI.isSubscribed)
+		document.getElementById('lblIsSubscribed').innerHTML = 'Yes!';
+	else
+		document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
+}
+	
+function testIsBlocked()
+{
+	if (DI.isBlocked)
+		document.getElementById('lblIsBlocked').innerHTML = 'Yes!';
+	else
+		document.getElementById('lblIsBlocked').innerHTML = 'Nope';
 }
 </script>
