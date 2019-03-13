@@ -38,9 +38,7 @@
 		<div>
 			<button ID ="btnIsSupported" OnClick="testIsSupported()">Tester IsSupported</button>
 		</div>
-		<div>
 			<label ID ="lblIsSupported" Text="allo"></label>
-		</div>
 		<p></p>
 		<p></p>
 	</div>
@@ -72,9 +70,9 @@ function testIsSubscribed()
 function testIsSupported()
 {
 	if (DI.isSubscribed)
-		document.getElementById('lblIsSubscribed').innerHTML = 'Yes!';
+		document.getElementById('lblIsSupported').innerHTML = 'Yes!';
 	else
-		document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
+		document.getElementById('lblIsSupported').innerHTML = 'Nope';
 }
 	
 function testIsBlocked()
