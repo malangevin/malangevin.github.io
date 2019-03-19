@@ -68,7 +68,7 @@
 
 function testIsSubscribed()
 {
-	if (DI.isSubscribed)
+	if (DI.Webpush.isSubscribed)
 		document.getElementById('lblIsSubscribed').innerHTML = 'Yes!';
 	else
 		document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
@@ -76,7 +76,7 @@ function testIsSubscribed()
 	
 function testIsSupported()
 {
-	if (DI.isSubscribed)
+	if (DI.Webpush.isSubscribed)
 		document.getElementById('lblIsSupported').innerHTML = 'Yes!';
 	else
 		document.getElementById('lblIsSupported').innerHTML = 'Nope';
@@ -84,7 +84,7 @@ function testIsSupported()
 	
 function testIsBlocked()
 {
-	if (DI.isBlocked)
+	if (DI.Webpush.isBlocked)
 		document.getElementById('lblIsBlocked').innerHTML = 'Yes!';
 	else
 		document.getElementById('lblIsBlocked').innerHTML = 'Nope';
