@@ -1,1 +1,21 @@
+<!DOCTYPE html>
 
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo</title>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+<script src="http://repo.dev-mabl.hq2.rep/T/OFC4/WPS/21331/12457/w3Wlvvjg922ikQRRkarmCjaVlCbJpqcM/DI.WebPush-min.js"></script>
+</head>
+
+<body>
+	<label>Adresse courriel du contact</label>
+	<input id="email" type="text" style="width:300px;" />
+	<input type="button" value="Identifier le contact" onclick="DI.WebPush.Identify('f_EMail', document.getElementById('email').value);" />
+	<input type="button" value="Reset identification" onclick="DI.WebPush.ResetIdentify();" />
+	<br/>
+	<input type="button" value="Envoi du token" onclick="DI.WebPush.RequestPermission('fr');"  />
+</body>
+</html>
