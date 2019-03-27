@@ -82,24 +82,34 @@
 			document.getElementById('lblIsSubscribed').innerHTML = 'L\'utilisateur est inscris aux notifications';
 			document.getElementById("lblIsSubscribed").style.color='green';
 		}
-		else
-			document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
+		else{
+			document.getElementById('lblIsSubscribed').innerHTML = 'Le user n\'est pas inscrit. Soit il n\'a pas approuvé, soit il ne possede pas de tokens';
+			document.getElementById("lblIsSubscribed").style.color='red';
+		}
 	}
 
 	function testIsSupported()
 	{
-		if (DI.WebPush.isSupported())
-			document.getElementById('lblIsSupported').innerHTML = 'Yes!';
-		else
-			document.getElementById('lblIsSupported').innerHTML = 'Nope';
+		if (DI.WebPush.isSupported()){
+			document.getElementById('lblIsSupported').innerHTML = 'Le browser actuel accepte les pushs!';
+			document.getElementById("lblIsSubscribed").style.color='green';
+		}
+		else{
+			document.getElementById('lblIsSupported').innerHTML = 'Le browser actuel n\'accepte pas les pushs!';
+			document.getElementById("lblIsSubscribed").style.color='red';
+		}
 	}
 
 	function testIsBlocked()
 	{
-		if (DI.WebPush.isBlocked())
-			document.getElementById('lblIsBlocked').innerHTML = 'Yes!';
-		else
-			document.getElementById('lblIsBlocked').innerHTML = 'Nope';
+		if (DI.WebPush.isBlocked()){
+			document.getElementById('lblIsBlocked').innerHTML = 'Le user a bloqué les notifications!';
+			document.getElementById("lblIsSubscribed").style.color='green';
+		}
+		else{
+			document.getElementById('lblIsBlocked').innerHTML = 'le user a soit approuvé les notifications ou n\'a pas encore decidé';
+			document.getElementById("lblIsSubscribed").style.color='red';
+		}
 	}
 
 	function askPermission()
