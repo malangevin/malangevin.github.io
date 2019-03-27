@@ -82,15 +82,15 @@
 function testIsSubscribed()
 {
 	if (DI.WebPush.isSubscribed())
-		document.getElementById('lblIsSubscribed').innerHTML = 'L\'utilisateur est inscris aux notifications';
+		document.getElementById('lblIsSubscribed').innerHTML = 'L\'utilisateur est inscris aux notifications et a approuvé de les recevois';
 	else
-		document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
+		document.getElementById('lblIsSubscribed').innerHTML = 'L\'utilisateur n\'est pas inscris aux notifications. Soit il les a bloqué, soit il ne possede pas de token';
 }
 	
 function testIsSupported()
 {
 	if (DI.WebPush.isSupported())
-		document.getElementById('lblIsSupported').innerHTML = 'Yes!';
+		document.getElementById('lblIsSupported').innerHTML = 'La version du browser supporte les notifications';
 	else
 		document.getElementById('lblIsSupported').innerHTML = 'Nope';
 }
