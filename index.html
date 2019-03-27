@@ -68,7 +68,7 @@
 
 function testIsSubscribed()
 {
-	if (DI.WebPush.isSubscribed)
+	if (DI.WebPush.isSubscribed())
 		document.getElementById('lblIsSubscribed').innerHTML = 'Yes!';
 	else
 		document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
