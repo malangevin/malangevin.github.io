@@ -76,7 +76,7 @@ function testIsSubscribed()
 	
 function testIsSupported()
 {
-	if (DI.WebPush.isSupported)
+	if (DI.WebPush.isSupported())
 		document.getElementById('lblIsSupported').innerHTML = 'Yes!';
 	else
 		document.getElementById('lblIsSupported').innerHTML = 'Nope';
@@ -84,7 +84,7 @@ function testIsSupported()
 	
 function testIsBlocked()
 {
-	if (DI.WebPush.isBlocked)
+	if (DI.WebPush.isBlocked())
 		document.getElementById('lblIsBlocked').innerHTML = 'Yes!';
 	else
 		document.getElementById('lblIsBlocked').innerHTML = 'Nope';
