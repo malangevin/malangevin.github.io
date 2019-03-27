@@ -17,5 +17,96 @@
 	<input type="button" value="Reset identification" onclick="DI.WebPush.ResetIdentify();" />
 	<br/>
 	<input type="button" value="Envoi du token" onclick="DI.WebPush.RequestPermission('fr');"  />
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnIsSubscribed" OnClick="testIsSubscribed()">Tester isSubscribed</button>
+			</div>
+			<div>
+				<label ID ="lblIsSubscribed" Text="allo"></label>
+			</div>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnIsSupported" OnClick="testIsSupported()">Tester IsSupported</button>
+			</div>
+				<label ID ="lblIsSupported" Text="allo"></label>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnIsBlocked" OnClick="testIsBlocked()">Tester isBlocked</button>
+			</div>
+			<div>
+				<label ID ="lblIsBlocked" Text="allo"></label>
+			</div>
+		</div>
+	</div>
+	
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p>
+		Si la page ne se load pas comme il faut , ou si les boutons ne font pas les actions désirés, il faut activer le mixed-content ou laisser passer les scripts louchons dans le navigateur, par exemple un bouclier dans la barre d'url de chrome.
+		Sinon, aller voir MABL
+	</p>
+	<p></p>
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnAskPermission" OnClick="askPermission()">Demander la permission</button>
+			</div>
+			<div>
+				<label ID ="lblAskPermission" Text="allo"></label>
+			</div>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
+	<script>
+	function testIsSubscribed()
+	{
+		if (DI.WebPush.isSubscribed())
+			document.getElementById('lblIsSubscribed').innerHTML = 'L\'utilisateur est inscris aux notifications';
+		else
+			document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
+	}
+
+	function testIsSupported()
+	{
+		if (DI.WebPush.isSupported())
+			document.getElementById('lblIsSupported').innerHTML = 'Yes!';
+		else
+			document.getElementById('lblIsSupported').innerHTML = 'Nope';
+	}
+
+	function testIsBlocked()
+	{
+		if (DI.WebPush.isBlocked())
+			document.getElementById('lblIsBlocked').innerHTML = 'Yes!';
+		else
+			document.getElementById('lblIsBlocked').innerHTML = 'Nope';
+	}
+
+	function askPermission()
+	{
+		if (Notification.permission == 'default')
+			Notification.requestPermission();
+		else if(Notification.permission == 'granted')
+			document.getElementById('lblAskPermission').innerHTML = 'Le user a déja permi les notifications';
+		else if(Notification.permission == 'denied')
+			document.getElementById('lblAskPermission').innerHTML = 'Le user a déja refusé les notifications';
+		else
+			document.getElementById('lblAskPermission').innerHTML = 'erreur';	
+	}
+	</script>
 </body>
 </html>
