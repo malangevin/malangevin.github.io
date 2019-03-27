@@ -92,11 +92,11 @@
 	{
 		if (DI.WebPush.isSupported()){
 			document.getElementById('lblIsSupported').innerHTML = 'Le browser actuel accepte les pushs!';
-			document.getElementById("lblIsSubscribed").style.color='green';
+			document.getElementById("lblIsSupported").style.color='green';
 		}
 		else{
 			document.getElementById('lblIsSupported').innerHTML = 'Le browser actuel n\'accepte pas les pushs!';
-			document.getElementById("lblIsSubscribed").style.color='red';
+			document.getElementById("lblIsSupported").style.color='red';
 		}
 	}
 
@@ -104,11 +104,11 @@
 	{
 		if (DI.WebPush.isBlocked()){
 			document.getElementById('lblIsBlocked').innerHTML = 'Le user a bloqué les notifications!';
-			document.getElementById("lblIsSubscribed").style.color='green';
+			document.getElementById("lblIsBlocked").style.color='green';
 		}
 		else{
 			document.getElementById('lblIsBlocked').innerHTML = 'le user a soit approuvé les notifications ou n\'a pas encore decidé';
-			document.getElementById("lblIsSubscribed").style.color='red';
+			document.getElementById("lblIsBlocked").style.color='red';
 		}
 	}
 
