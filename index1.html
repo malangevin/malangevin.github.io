@@ -78,8 +78,10 @@
 	<script>
 	function testIsSubscribed()
 	{
-		if (DI.WebPush.isSubscribed())
+		if (DI.WebPush.isSubscribed()){
 			document.getElementById('lblIsSubscribed').innerHTML = 'L\'utilisateur est inscris aux notifications';
+			document.getElementById("lblIsSubscribed").style.color='green';
+		}
 		else
 			document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
 	}
