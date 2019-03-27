@@ -60,6 +60,19 @@
 		Si la page ne se load pas comme il faut , ou si les boutons ne font pas les actions désirés, il faut activer le mixed-content ou laisser passer les scripts louchons dans le navigateur, par exemple un bouclier dans la barre d'url de chrome.
 		Sinon, aller voir MABL
 	</p>
+	<p></p>
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnAskPermission" OnClick="askPermission()">Demander la permission</button>
+			</div>
+			<div>
+				<label ID ="lblAskPermission" Text="allo"></label>
+			</div>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
 </body>
 
 </html>
@@ -69,7 +82,7 @@
 function testIsSubscribed()
 {
 	if (DI.WebPush.isSubscribed())
-		document.getElementById('lblIsSubscribed').innerHTML = 'Yes!';
+		document.getElementById('lblIsSubscribed').innerHTML = 'L\'utilisateur est inscris aux notifications';
 	else
 		document.getElementById('lblIsSubscribed').innerHTML = 'Nope';
 }
@@ -88,5 +101,17 @@ function testIsBlocked()
 		document.getElementById('lblIsBlocked').innerHTML = 'Yes!';
 	else
 		document.getElementById('lblIsBlocked').innerHTML = 'Nope';
+}
+	
+function askPermission()
+{
+	if (Notification.permission == 'default')
+		Notification.requestPermission();
+	else if(Notification.permission == 'granted')
+		document.getElementById('lblAskPermission').innerHTML = 'Le user a déja permi les notifications';
+	else if(Notification.permission == 'denied')
+		document.getElementById('lblAskPermission').innerHTML = 'Le user a déja refusé les notifications';
+	else
+		document.getElementById('lblAskPermission').innerHTML = 'erreur';	
 }
 </script>
