@@ -12,7 +12,7 @@
 
 <body>
 	<label>Adresse courriel du contact</label>
-	<input id="email" type="text" style="width:300px;" />
+	<input id="email" type="text" style="width:300px;" autocomplete=on />
 	<input type="button" value="Identifier le contact" onclick="DI.WebPush.Identify('f_EMail', document.getElementById('email').value);" />
 	<input type="button" value="Reset identification" onclick="DI.WebPush.ResetIdentify();" />
 	<br/>
