@@ -7,7 +7,7 @@
   <title>Demo</title>
 <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
-<script src="http://repo.dev-mabl.hq2.rep/T/OFC4/WPS/21331/12457/w3Wlvvjg922ikQRRkarmCjaVlCbJpqcM/DI.WebPush-min.js"></script>
+<script src="https://lightspeed.dev.ofsys.com/T/OFC4/WPS/33463/13411/KvO2Zelaf2WmpyGd3F9jrha1BTUTPr0v/DI.WebPush-min.js"></script>
 </head>
 
 <body>
@@ -16,6 +16,110 @@
 	<input type="button" value="Identifier le contact" onclick="DI.WebPush.Identify('f_EMail', document.getElementById('email').value);" />
 	<input type="button" value="Reset identification" onclick="DI.WebPush.ResetIdentify();" />
 	<br/>
-	<input type="button" value="Envoi du token" onclick="DI.WebPush.RequestPermission('fr');"  />
+	<input type="button" value="Envoi du token" onclick="DI.WebPush.RequestPermission('en');"  />
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnIsSubscribed" OnClick="testIsSubscribed()">Tester isSubscribed</button>
+			</div>
+			<div>
+				<label ID ="lblIsSubscribed" Text="allo"></label>
+			</div>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnIsSupported" OnClick="testIsSupported()">Tester IsSupported</button>
+			</div>
+				<label ID ="lblIsSupported" Text="allo"></label>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnIsBlocked" OnClick="testIsBlocked()">Tester isBlocked</button>
+			</div>
+			<div>
+				<label ID ="lblIsBlocked" Text="allo"></label>
+			</div>
+		</div>
+	</div>
+	
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p>
+		Si la page ne se load pas comme il faut , ou si les boutons ne font pas les actions désirés, il faut activer le mixed-content ou laisser passer les scripts louchons dans le navigateur, par exemple un bouclier dans la barre d'url de chrome.
+		Sinon, aller voir MABL
+	</p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<div>
+		<div style="display:inline-block">
+			<div>
+				<button ID ="btnAskPermission" OnClick="askPermission()">Demander la permission</button>
+			</div>
+			<div>
+				<label ID ="lblAskPermission" Text="allo"></label>
+			</div>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
+	<script>
+	function testIsSubscribed()
+	{
+		if (DI.WebPush.isSubscribed()){
+			document.getElementById('lblIsSubscribed').innerHTML = 'L\'utilisateur est inscris aux notifications';
+			document.getElementById("lblIsSubscribed").style.color='green';
+		}
+		else{
+			document.getElementById('lblIsSubscribed').innerHTML = 'Le user n\'est pas inscrit. Soit il n\'a pas approuvé, soit il ne possede pas de tokens';
+			document.getElementById("lblIsSubscribed").style.color='red';
+		}
+	}
+	function testIsSupported()
+	{
+		if (DI.WebPush.isSupported()){
+			document.getElementById('lblIsSupported').innerHTML = 'Le browser actuel accepte les pushs!';
+			document.getElementById("lblIsSupported").style.color='green';
+		}
+		else{
+			document.getElementById('lblIsSupported').innerHTML = 'Le browser actuel n\'accepte pas les pushs!';
+			document.getElementById("lblIsSupported").style.color='red';
+		}
+	}
+	function testIsBlocked()
+	{
+		if (DI.WebPush.isBlocked()){
+			document.getElementById('lblIsBlocked').innerHTML = 'Le user a bloqué les notifications!';
+			document.getElementById("lblIsBlocked").style.color='green';
+		}
+		else{
+			document.getElementById('lblIsBlocked').innerHTML = 'le user a approuvé les notifications ou il n\'a pas encore decidé ou le browser n\'accepte pas les notifications';
+			document.getElementById("lblIsBlocked").style.color='red';
+		}
+	}
+	function askPermission()
+	{
+		if (Notification.permission == 'default')
+			Notification.requestPermission();
+		else if(Notification.permission == 'granted')
+			document.getElementById('lblAskPermission').innerHTML = 'Le user a déja permi les notifications';
+		else if(Notification.permission == 'denied')
+			document.getElementById('lblAskPermission').innerHTML = 'Le user a déja refusé les notifications';
+		else
+			document.getElementById('lblAskPermission').innerHTML = 'erreur';	
+	}
+	</script>
 </body>
 </html>
