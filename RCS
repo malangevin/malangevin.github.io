@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebRTC Session Controller Messaging Example</title>
+    <script type="text/javascript" src="/api/wsc-common.js"></script>
+    <script type="text/javascript" src="/api/wsc-messaging.js"></script> 
+  </head>
+  <body>
+    <h1>WebRTC Session Controller Messaging Example</h1>
+    <div id="statusArea"></div>
+    <h4>Recipient:</h4> 
+    <p><input type="text" name="msgTarget" id="msgTarget" size="40"/></p>
+    <div id="history"></div>
+    <h4>Message Content:</h4>
+    <p>
+      <input type="text" name="msgContent" id="msgContent" size="50"/>
+      <input type="button" name="msgSend" id="msgSend" value="Send"/>
+    </p>
+  </body>
+</html>
